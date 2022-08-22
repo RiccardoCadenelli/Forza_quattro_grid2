@@ -11,8 +11,8 @@ public class ForzaQuattro2Application extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(ForzaQuattro2Application.class.getResource("forza_quattro2-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("Forza Quattro");
         stage.setScene(scene);
         stage.show();
     }
