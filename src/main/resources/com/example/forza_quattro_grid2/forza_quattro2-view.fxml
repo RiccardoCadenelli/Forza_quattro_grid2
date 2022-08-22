@@ -2,28 +2,82 @@
 
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17">
-  <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-  </columnConstraints>
-  <rowConstraints>
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-  </rowConstraints>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.forza_quattro_grid2.ForzaQuattro2Controller">
    <children>
-      <Circle fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+      <GridPane fx:id="gridTabella" layoutX="10.0" layoutY="10.0" maxHeight="400.0" maxWidth="600.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onMouseColumnClicked" onMouseEntered="#onColumnEntered" onMouseExited="#onColumnExited" prefHeight="400.0" prefWidth="600.0">
+         <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Circle fx:id="Circle00" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+            <Circle fx:id="Circle01" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="1" />
+            <Circle fx:id="Circle02" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="2" />
+            <Circle fx:id="Circle03" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="3" />
+            <Circle fx:id="Circle04" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="4" />
+            <Circle fx:id="Circle05" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.rowIndex="5" />
+            <Circle fx:id="Circle10" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" />
+            <Circle fx:id="Circle11" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Circle fx:id="Circle12" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Circle fx:id="Circle13" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Circle fx:id="Circle14" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Circle fx:id="Circle15" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Circle fx:id="Circle20" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" />
+            <Circle fx:id="Circle21" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Circle fx:id="Circle22" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Circle fx:id="Circle23" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Circle fx:id="Circle24" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Circle fx:id="Circle25" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Circle fx:id="Circle30" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" />
+            <Circle fx:id="Circle31" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Circle fx:id="Circle32" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Circle fx:id="Circle33" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Circle fx:id="Circle34" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Circle fx:id="Circle35" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <Circle fx:id="Circle40" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" />
+            <Circle fx:id="Circle41" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Circle fx:id="Circle42" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <Circle fx:id="Circle43" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <Circle fx:id="Circle44" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <Circle fx:id="Circle45" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <Circle fx:id="Circle50" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" />
+            <Circle fx:id="Circle51" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <Circle fx:id="Circle52" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <Circle fx:id="Circle53" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <Circle fx:id="Circle54" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <Circle fx:id="Circle55" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+            <Circle fx:id="Circle60" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" />
+            <Circle fx:id="Circle61" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+            <Circle fx:id="Circle62" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+            <Circle fx:id="Circle63" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+            <Circle fx:id="Circle64" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+            <Circle fx:id="Circle65" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+         </children>
+      </GridPane>
+      <Rectangle fx:id="RectC0" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff61" height="420.0" layoutX="28.0" onMouseEntered="#onRectC0Entered" onMouseExited="#onRectC0Exited" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="RectC1" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff61" height="420.0" layoutX="112.0" layoutY="1.0" onMouseEntered="#onRectC1Entered" onMouseExited="#onRectC1Exited" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="RectC2" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff61" height="420.0" layoutX="197.0" onMouseEntered="#onRectC2Entered" onMouseExited="#onRectC2Exited" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="RectC3" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff61" height="420.0" layoutX="285.0" onMouseEntered="#onRectC3Entered" onMouseExited="#onRectC3Exited" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="RectC4" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff61" height="429.0" layoutX="370.0" layoutY="-8.0" onMouseEntered="#onRectC4Entered" onMouseExited="#onRectC4Exited" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="RectC5" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff61" height="429.0" layoutX="456.0" layoutY="-3.0" onMouseEntered="#onRectC5Entered" onMouseExited="#onRectC5Exited" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="RectC6" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff61" height="429.0" layoutX="541.0" layoutY="-4.0" onMouseEntered="#onRectC6Entered" onMouseExited="#onRectC6Exited" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />
    </children>
-</GridPane>
+</Pane>
