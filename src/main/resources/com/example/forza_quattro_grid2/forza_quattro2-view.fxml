@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="420.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.forza_quattro_grid2.ForzaQuattro2Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.forza_quattro_grid2.ForzaQuattro2Controller">
    <children>
-      <GridPane fx:id="gridTabella" layoutX="10.0" layoutY="10.0" maxHeight="400.0" maxWidth="600.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#onMouseColumnClicked" onMouseEntered="#onColumnEntered" onMouseExited="#onColumnExited" prefHeight="400.0" prefWidth="600.0">
+      <GridPane fx:id="gridTabella" layoutX="10.0" layoutY="10.0" maxHeight="400.0" maxWidth="600.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
          <columnConstraints>
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -72,12 +74,22 @@
             <Circle fx:id="Circle65" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.rowIndex="5" />
          </children>
       </GridPane>
-      <Rectangle fx:id="RectC0" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff61" height="420.0" layoutX="28.0" onMouseEntered="#onRectC0Entered" onMouseExited="#onRectC0Exited" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />
-      <Rectangle fx:id="RectC1" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff61" height="420.0" layoutX="112.0" layoutY="1.0" onMouseEntered="#onRectC1Entered" onMouseExited="#onRectC1Exited" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />
-      <Rectangle fx:id="RectC2" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff61" height="420.0" layoutX="197.0" onMouseEntered="#onRectC2Entered" onMouseExited="#onRectC2Exited" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />
-      <Rectangle fx:id="RectC3" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff61" height="420.0" layoutX="285.0" onMouseEntered="#onRectC3Entered" onMouseExited="#onRectC3Exited" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />
-      <Rectangle fx:id="RectC4" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff61" height="429.0" layoutX="370.0" layoutY="-8.0" onMouseEntered="#onRectC4Entered" onMouseExited="#onRectC4Exited" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />
-      <Rectangle fx:id="RectC5" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff61" height="429.0" layoutX="456.0" layoutY="-3.0" onMouseEntered="#onRectC5Entered" onMouseExited="#onRectC5Exited" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />
-      <Rectangle fx:id="RectC6" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff61" height="429.0" layoutX="541.0" layoutY="-4.0" onMouseEntered="#onRectC6Entered" onMouseExited="#onRectC6Exited" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="RectC0" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff61" height="420.0" layoutX="28.0" onMouseClicked="#onMouseRectC0Clicked" onMouseEntered="#onRectC0Entered" onMouseExited="#onRectC0Exited" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="RectC1" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff61" height="420.0" layoutX="112.0" layoutY="1.0" onMouseClicked="#onMouseRectC1Clicked" onMouseEntered="#onRectC1Entered" onMouseExited="#onRectC1Exited" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="RectC2" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff61" height="420.0" layoutX="197.0" onMouseClicked="#onMouseRectC2Clicked" onMouseEntered="#onRectC2Entered" onMouseExited="#onRectC2Exited" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="RectC3" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff61" height="420.0" layoutX="285.0" onMouseClicked="#onMouseRectC3Clicked" onMouseEntered="#onRectC3Entered" onMouseExited="#onRectC3Exited" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="RectC4" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff61" height="429.0" layoutX="370.0" layoutY="-8.0" onMouseClicked="#onMouseRectC4Clicked" onMouseEntered="#onRectC4Entered" onMouseExited="#onRectC4Exited" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="RectC5" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff61" height="429.0" layoutX="456.0" layoutY="-3.0" onMouseClicked="#onMouseRectC5Clicked" onMouseEntered="#onRectC5Entered" onMouseExited="#onRectC5Exited" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />
+      <Rectangle fx:id="RectC6" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff61" height="429.0" layoutX="541.0" layoutY="-4.0" onMouseClicked="#onMouseRectC6Clicked" onMouseEntered="#onRectC6Entered" onMouseExited="#onRectC6Exited" stroke="TRANSPARENT" strokeType="INSIDE" width="50.0" />
+      <Button fx:id="PlayButton" layoutX="115.0" layoutY="425.0" mnemonicParsing="false" onAction="#onPlayButtonClick" text="Play">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="ResetButton" layoutX="455.0" layoutY="425.0" mnemonicParsing="false" onAction="#onResetButtonClick" text="Reset">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </Pane>
