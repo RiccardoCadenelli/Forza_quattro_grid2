@@ -7,16 +7,24 @@ public class Giocatore {
         this.PlayerMove = 0;
     }
 
+    /**
+     * itizialize the Player paramether with random method
+     */
+    public void intializePlayer(){
+        PlayerMove = (int)(Math.random()*(2)+1);
+        System.out.println(PlayerMove);
+    }
+
     public int getPlayerMove() {
         return PlayerMove;
     }
 
-    public void resetPlayerMove(){
-        PlayerMove = 0;
-    }
-
+    /**
+     * This method change the status of the player to player1 and player2
+     * @return the number of the player
+     */
     public int ChangePlayer(){
-        if(PlayerMove == 0 || PlayerMove == 2)
+        if(PlayerMove == 2)
             PlayerMove= 1;
         else
             PlayerMove= 2;
