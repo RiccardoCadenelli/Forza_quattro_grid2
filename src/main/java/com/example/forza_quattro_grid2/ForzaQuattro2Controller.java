@@ -1,6 +1,8 @@
 package com.example.forza_quattro_grid2;
 
 import javafx.fxml.FXML;
+import javafx.geometry.Point2D;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
@@ -10,6 +12,9 @@ import javafx.scene.shape.Rectangle;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 
 public class ForzaQuattro2Controller {
@@ -25,6 +30,8 @@ public class ForzaQuattro2Controller {
     private Giocatore giocatore = new Giocatore();
     private int counterC0, counterC1, counterC2, counterC3, counterC4,
                 counterC5, counterC6;
+    @FXML
+    private Label gameLabel = new Label();
 
     @FXML
     private Circle Circle00,Circle01,Circle02,Circle03,Circle04,Circle05,
@@ -41,8 +48,9 @@ public class ForzaQuattro2Controller {
     ArrayList<Circle> C3 = new ArrayList<>(); ArrayList<Circle> C4 = new ArrayList<>(); ArrayList<Circle> C5 = new ArrayList<>();
     ArrayList<Circle> C6 = new ArrayList<>();
 
+
     public void inizializzaScacchiera(){
-        ArrayList<ArrayList<Circle>> scacchiera = new ArrayList();
+        scacchiera = new ArrayList();
         //ArrayList<Circle> C0 = new ArrayList<>();
         C0.add(Circle00); C0.add(Circle01); C0.add(Circle02); C0.add(Circle03); C0.add(Circle04); C0.add(Circle05);
         //ArrayList<Circle> C1 = new ArrayList<>();
@@ -63,8 +71,6 @@ public class ForzaQuattro2Controller {
         RectC0.setFill(Paint.valueOf("TRANSPARENT")); RectC1.setFill(Paint.valueOf("TRANSPARENT")); RectC2.setFill(Paint.valueOf("TRANSPARENT"));
         RectC3.setFill(Paint.valueOf("TRANSPARENT")); RectC4.setFill(Paint.valueOf("TRANSPARENT")); RectC5.setFill(Paint.valueOf("TRANSPARENT"));
         RectC6.setFill(Paint.valueOf("TRANSPARENT"));
-        counterC0 = RIGHE; counterC1 = RIGHE; counterC2 = RIGHE; counterC3 = RIGHE; counterC4 = RIGHE;
-        counterC5 = RIGHE; counterC6 = RIGHE;
         //System.out.println(scacchiera);
         /*Circle mycircle = new Circle();
         mycircle= scacchiera.get(0).get(0);
@@ -73,6 +79,30 @@ public class ForzaQuattro2Controller {
         System.out.println(gridTabella.getWidth());
         System.out.println(gridTabella.getHeight());
     }
+
+    public void fillCircle (int column){
+        Circle c;
+        int currentRow = 0;
+        for(int i = RIGHE-1 ; i >= 0; i--) {
+            c=scacchiera.get(column).get(i);
+            if (c.getFill().equals(Paint.valueOf("DODGERBLUE"))) {
+                if (giocatore.getPlayerMove() == 1) {
+                    c.setFill(Paint.valueOf("RED"));
+                } else {
+                    c.setFill(Paint.valueOf("YELLOW"));
+                }
+                giocatore.ChangePlayer();
+                currentRow = i;
+                break;
+            }
+        }
+       gameOver(gameEnded(COLONNE-1,RIGHE-1));
+    }
+
+/*    public void inizializzaContatori(){
+        counterC0 = RIGHE-1; counterC1 = RIGHE-1; counterC2 = RIGHE-1; counterC3 = RIGHE-1; counterC4 = RIGHE-1;
+        counterC5 = RIGHE-1 ; counterC6 = RIGHE-1;
+    }*/
 
     public void updateCounterC0(){
         counterC0-= 1;
@@ -99,6 +129,8 @@ public class ForzaQuattro2Controller {
     @FXML
     public void initialize(){
         inizializzaScacchiera();
+        //inizializzaContatori();
+        giocatore.intializePlayer();
     }
 
     @FXML
@@ -166,153 +198,150 @@ public class ForzaQuattro2Controller {
 
     @FXML
     protected void onMouseRectC0Clicked(){
-        while (counterC0 >= 0) {
+      //  System.out.println(counterC0);
+/*        while (counterC0 >= 0) {
             if(giocatore.getPlayerMove() == 1) {
                 C0.get(counterC0).setFill(Paint.valueOf("RED"));
                 giocatore.ChangePlayer();
                 break;
             }
-            else if(giocatore.getPlayerMove() == 2) {
+            else{
                 C0.get(counterC0).setFill(Paint.valueOf("YELLOW"));
                 giocatore.ChangePlayer();
                 break;
             }
-            else
-                giocatore.ChangePlayer();
-            updateCounterC0();
         }
-        updateCounterC0();
+        updateCounterC0();*/
+
+        fillCircle(0);
+
     }
 
     @FXML
     protected void onMouseRectC1Clicked(){
+/*        System.out.println(counterC1);
         while(counterC1 >= 0){
             if(giocatore.getPlayerMove() == 1) {
                 C1.get(counterC1).setFill(Paint.valueOf("RED"));
                 giocatore.ChangePlayer();
                 break;
             }
-            else if(giocatore.getPlayerMove() == 2) {
+            else {
                 C1.get(counterC1).setFill(Paint.valueOf("YELLOW"));
                 giocatore.ChangePlayer();
                 break;
             }
-            else
-                giocatore.ChangePlayer();
-            updateCounterC1();
+
         }
-        updateCounterC1();
+        updateCounterC1();*/
+
+        fillCircle(1);
     }
 
     @FXML
     protected void onMouseRectC2Clicked(){
-        while(counterC2 >= 0){
+/*        while(counterC2 >= 0){
             if(giocatore.getPlayerMove() == 1) {
                 C2.get(counterC2).setFill(Paint.valueOf("RED"));
                 giocatore.ChangePlayer();
                 break;
             }
-            else if(giocatore.getPlayerMove() == 2) {
+            else{
                 C2.get(counterC2).setFill(Paint.valueOf("YELLOW"));
                 giocatore.ChangePlayer();
                 break;
             }
-            else
-                giocatore.ChangePlayer();
-            updateCounterC2();
         }
-        updateCounterC2();
+        updateCounterC2();*/
+
+        fillCircle(2);
     }
 
     @FXML
     protected void onMouseRectC3Clicked(){
-        while(counterC3 >= 0){
+/*        while(counterC3 >= 0){
             if(giocatore.getPlayerMove() == 1) {
                 C3.get(counterC3).setFill(Paint.valueOf("RED"));
                 giocatore.ChangePlayer();
                 break;
             }
-            else if(giocatore.getPlayerMove() == 2) {
+            else{
                 C3.get(counterC3).setFill(Paint.valueOf("YELLOW"));
                 giocatore.ChangePlayer();
                 break;
             }
-            else
-                giocatore.ChangePlayer();
-            updateCounterC3();
         }
-        updateCounterC3();
+        updateCounterC3();*/
+
+        fillCircle(3);
     }
 
     @FXML
     protected void onMouseRectC4Clicked(){
-        while(counterC4 >= 0){
+/*        while(counterC4 >= 0){
             if(giocatore.getPlayerMove() == 1) {
                 C4.get(counterC4).setFill(Paint.valueOf("RED"));
                 giocatore.ChangePlayer();
                 break;
             }
-            else if(giocatore.getPlayerMove() == 2) {
+            else{
                 C4.get(counterC4).setFill(Paint.valueOf("YELLOW"));
                 giocatore.ChangePlayer();
                 break;
             }
-            else
-                giocatore.ChangePlayer();
-            updateCounterC4();
         }
-        updateCounterC4();
+        updateCounterC4();*/
+
+        fillCircle(4);
     }
 
     @FXML
     protected void onMouseRectC5Clicked(){
-        while(counterC5 >= 0){
+/*        while(counterC5 >= 0){
             if(giocatore.getPlayerMove() == 1) {
                 C5.get(counterC5).setFill(Paint.valueOf("RED"));
                 giocatore.ChangePlayer();
                 break;
             }
-            else if(giocatore.getPlayerMove() == 2) {
+            else{
                 C5.get(counterC5).setFill(Paint.valueOf("YELLOW"));
                 giocatore.ChangePlayer();
                 break;
             }
-            else
-                giocatore.ChangePlayer();
-            updateCounterC5();
         }
-        updateCounterC5();
+        updateCounterC5();*/
+
+        fillCircle(5);
     }
 
     @FXML
     protected void onMouseRectC6Clicked(){
-        while(counterC6 >= 0){
+/*        while(counterC6 >= 0){
             if(giocatore.getPlayerMove() == 1) {
                 C6.get(counterC6).setFill(Paint.valueOf("RED"));
                 giocatore.ChangePlayer();
                 break;
             }
-            else if(giocatore.getPlayerMove() == 2) {
+            else {
                 C6.get(counterC6).setFill(Paint.valueOf("YELLOW"));
                 giocatore.ChangePlayer();
                 break;
             }
-            else
-                giocatore.ChangePlayer();
-            updateCounterC6();
+
         }
-        updateCounterC6();
+        updateCounterC6();*/
+
+        fillCircle(6);
     }
 
     @FXML
     protected void onPlayButtonClick(){
-
+        initialize();
     }
 
     @FXML
     protected void onResetButtonClick(){
         initialize();
-        giocatore.resetPlayerMove();
         Circle00.setFill(Paint.valueOf("DODGERBLUE")); Circle01.setFill(Paint.valueOf("DODGERBLUE"));
         Circle02.setFill(Paint.valueOf("DODGERBLUE")); Circle03.setFill(Paint.valueOf("DODGERBLUE"));
         Circle04.setFill(Paint.valueOf("DODGERBLUE")); Circle05.setFill(Paint.valueOf("DODGERBLUE"));
@@ -331,5 +360,252 @@ public class ForzaQuattro2Controller {
         Circle50.setFill(Paint.valueOf("DODGERBLUE")); Circle51.setFill(Paint.valueOf("DODGERBLUE"));
         Circle52.setFill(Paint.valueOf("DODGERBLUE")); Circle53.setFill(Paint.valueOf("DODGERBLUE"));
         Circle54.setFill(Paint.valueOf("DODGERBLUE")); Circle55.setFill(Paint.valueOf("DODGERBLUE"));
+        Circle60.setFill(Paint.valueOf("DODGERBLUE")); Circle61.setFill(Paint.valueOf("DODGERBLUE"));
+        Circle62.setFill(Paint.valueOf("DODGERBLUE")); Circle63.setFill(Paint.valueOf("DODGERBLUE"));
+        Circle64.setFill(Paint.valueOf("DODGERBLUE")); Circle65.setFill(Paint.valueOf("DODGERBLUE"));
+        gameLabel.setText("FORZA 4");
     }
+
+/*    public boolean gameEndedV (int row, int column){
+        return true;
+    }
+
+    public boolean gameEndedH (int row, int column){
+        return true;
+    }
+
+    public boolean gameEndedTL (int row, int column){
+        for(int i = 0; i < column-3; i++){
+            for(int j = 0; j < row-3; j++){
+
+            }
+        }
+        return true;
+    }
+    public boolean gameEndedBL (int row, int column){
+        for(int i = 0; i < column-3; i++ ){
+            for(int j = 0; j < row+3; i++){
+
+            }
+        }
+        return true;
+    }*/
+
+    private int gameEnded(int column, int row) {
+/*        List<Point2D> vertical = IntStream.rangeClosed(row - 3, row + 3)
+                .mapToObj(r -> new Point2D(column, r))
+                .collect(Collectors.toList());
+
+        List<Point2D> horizontal = IntStream.rangeClosed(column - 3, column + 3)
+                .mapToObj(c -> new Point2D(c, row))
+                .collect(Collectors.toList());
+
+        Point2D topLeft = new Point2D(column - 3, row - 3);
+        List<Point2D> diagonal1 = IntStream.rangeClosed(0, 6)
+                .mapToObj(i -> topLeft.add(i, i))
+                .collect(Collectors.toList());
+
+        Point2D botLeft = new Point2D(column - 3, row + 3);
+        List<Point2D> diagonal2 = IntStream.rangeClosed(0, 6)
+                .mapToObj(i -> botLeft.add(i, -i))
+                .collect(Collectors.toList());
+
+        if (checkRange(vertical) == 1 || checkRange(horizontal) == 1 || checkRange(diagonal1) == 1 || checkRange(diagonal2) == 1){
+            return 1;
+        }
+        else if (checkRange(vertical) == 2 || checkRange(horizontal) == 2 || checkRange(diagonal1) == 2 || checkRange(diagonal2) == 2){
+            return 2;
+        }
+        else
+        return 0;
+        */
+
+        if (checkRangeV(column,row) == 1 || checkRangeH(column,row) == 1 || checkRangeTLC(column,row) == 1 || checkRangeTLR(column,row) == 1  || checkRangeBLC(column,row) == 1 || checkRangeBLR(column,row) == 1)
+        {
+            return 1;
+        }
+        else if (checkRangeV(column,row) == 2 || checkRangeH(column,row) == 2 || checkRangeTLC(column,row) == 2 || checkRangeTLR(column,row) == 2 || checkRangeBLC(column,row) == 2 || checkRangeBLR(column,row) == 2){
+            return 2;
+        }
+        else
+            return 0;
+    }
+
+    private int checkRangeV(int column, int row) {
+        int chainR = 0;
+        int chainY = 0;
+        Circle c;
+        for(int i = 0; i <= column; i++){
+            for (int j= 0; j <= row; j++) {
+                c =  scacchiera.get(i).get(j);
+                if (c.getFill().equals(Paint.valueOf("RED"))) {
+                    chainR++;
+                   // System.out.println("CHR "+ chainR);
+                    if (chainR == 4) {
+                      //  System.out.println("-----" + "1");
+                        return 1;
+                    }
+                } else {
+                    chainR = 0;
+                }
+
+                if (c.getFill().equals(Paint.valueOf("YELLOW"))) {
+                    chainY++;
+                   // System.out.println("CHY "+ chainY);
+                    if (chainY == 4) {
+                     //   System.out.println("-----" + "2");
+                        return 2;
+                    }
+                } else {
+                    chainY = 0;
+                }
+            }
+        }
+
+     //   System.out.println("-----" + "0");
+        return 0;
+    }
+
+    private int checkRangeH(int column, int row) {
+        int chainR = 0;
+        int chainY = 0;
+        Circle c;
+        for (int j= 0; j <= row; j++) {
+            for(int i = 0; i <= column; i++){
+                c =  scacchiera.get(i).get(j);
+                if (c.getFill().equals(Paint.valueOf("RED"))) {
+                    chainR++;
+                     // System.out.println("CHR "+ chainR);
+                    if (chainR == 4) {
+                       //   System.out.println("-----" + "1");
+                        return 1;
+                    }
+                } else {
+                    chainR = 0;
+                }
+
+                if (c.getFill().equals(Paint.valueOf("YELLOW"))) {
+                    chainY++;
+                     //System.out.println("CHY "+ chainY);
+                    if (chainY == 4) {
+                        //   System.out.println("-----" + "2");
+                        return 2;
+                    }
+                } else {
+                    chainY = 0;
+                }
+            }
+        }
+        //   System.out.println("-----" + "0");
+        return 0;
+    }
+    private int checkRangeTLC(int column, int row) {
+        int chainR = 0;
+        int chainY = 0;
+        Circle c;
+        for(int i = 0; i <= column-3; i++){
+            int k=i;
+            for (int j= 0; j <= row; j++) {
+                c =  scacchiera.get(k).get(j);
+                k++;
+                if(k> column){
+                    break;
+                }
+                if (c.getFill().equals(Paint.valueOf("RED"))) {
+                    chainR++;
+                     System.out.println("CHR "+ chainR);
+                    if (chainR == 4) {
+                           System.out.println("-----" + "1");
+                        return 1;
+                    }
+                } else {
+                    chainR = 0;
+                }
+
+                if (c.getFill().equals(Paint.valueOf("YELLOW"))) {
+                    chainY++;
+                    System.out.println("CHY "+ chainY);
+                    if (chainY == 4) {
+                           System.out.println("-----" + "2");
+                        return 2;
+                    }
+                } else {
+                    chainY = 0;
+                }
+            }
+        }
+        //   System.out.println("-----" + "0");
+        return 0;
+    }
+    private int checkRangeTLR(int column, int row) {
+        return 0;
+    }
+    private int checkRangeBLC(int column, int row) {
+        return 0;
+    }
+    private int checkRangeBLR(int column, int row) {
+        return 0;
+    }
+/*    private int checkRange(List<Point2D> points) {
+        int chainR = 0;
+        int chainY = 0;
+        Circle c;
+
+        for (Point2D p : points) {
+            int column = (int) p.getX();
+            int row = (int) p.getY();
+            System.out.println("C: "+ column + " R: " + row);
+
+            c =  scacchiera.get(column).get(row);
+
+            if (c.getFill().equals(Paint.valueOf("RED"))) {
+                chainR++;
+                if (chainR == 4) {
+                    return 1;
+                }
+            } else {
+                chainR = 0;
+            }
+
+            if (c.getFill().equals(Paint.valueOf("YELLOW"))) {
+                chainY++;
+                if (chainY == 4) {
+                    return 2;
+                }
+            } else {
+                chainY = 0;
+            }
+        }
+
+        return 0;
+    }*/
+
+/*    Circle c;
+        for(int i = RIGHE-1 ; i >= 0; i--) {
+        c = scacchiera.get(column).get(i);
+        if (c.getFill().equals(Paint.valueOf("DODGERBLUE"))) {
+            if (giocatore.getPlayerMove() == 1) {
+                c.setFill(Paint.valueOf("RED"));
+            } else {
+                c.setFill(Paint.valueOf("YELLOW"));
+            }
+            giocatore.ChangePlayer();
+            break;
+        }
+    }*/
+
+
+
+    private void gameOver(int winner) {
+        if(winner == 1){
+            gameLabel.setText("Il vinciotore è il giocatore 1");
+            System.out.println("Il vinciotore è il giocatore 1");
+        }
+        else if(winner == 2){
+            gameLabel.setText("Il vincitore è il giocatore 2");
+        }
+        else
+            gameLabel.setText("PAREGGIO");
+    }
+
 }
