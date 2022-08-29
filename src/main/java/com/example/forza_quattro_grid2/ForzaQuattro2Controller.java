@@ -507,15 +507,12 @@ public class ForzaQuattro2Controller {
             int k=i;
             for (int j= 0; j <= row; j++) {
                 c =  scacchiera.get(k).get(j);
-                k++;
-                if(k> column){
-                    break;
-                }
+
                 if (c.getFill().equals(Paint.valueOf("RED"))) {
                     chainR++;
-                     System.out.println("CHR "+ chainR);
+                   // System.out.println("CHR "+ chainR);
                     if (chainR == 4) {
-                           System.out.println("-----" + "1");
+                    //       System.out.println("-----" + "1");
                         return 1;
                     }
                 } else {
@@ -524,13 +521,17 @@ public class ForzaQuattro2Controller {
 
                 if (c.getFill().equals(Paint.valueOf("YELLOW"))) {
                     chainY++;
-                    System.out.println("CHY "+ chainY);
+                    //System.out.println("CHY "+ chainY);
                     if (chainY == 4) {
-                           System.out.println("-----" + "2");
+                    //       System.out.println("-----" + "2");
                         return 2;
                     }
                 } else {
                     chainY = 0;
+                }
+                k++;
+                if(k> column){
+                    break;
                 }
             }
         }
@@ -538,12 +539,119 @@ public class ForzaQuattro2Controller {
         return 0;
     }
     private int checkRangeTLR(int column, int row) {
+        int chainR = 0;
+        int chainY = 0;
+        Circle c;
+        for (int j= 1; j <= row-3; j++) {
+            int k=j;
+            for(int i = 0; i <= column; i++){
+                    c =  scacchiera.get(i).get(k);
+               // System.out.println(i + "-" + k + "-" + c);
+
+                if (c.getFill().equals(Paint.valueOf("RED"))) {
+                    chainR++;
+                 //   System.out.println("CHR "+ chainR);
+                    if (chainR == 4) {
+                 //       System.out.println("-----" + "1");
+                        return 1;
+                    }
+                } else {
+                    chainR = 0;
+                }
+
+                if (c.getFill().equals(Paint.valueOf("YELLOW"))) {
+                    chainY++;
+                //    System.out.println("CHY "+ chainY);
+                    if (chainY == 4) {
+                //        System.out.println("-----" + "2");
+                        return 2;
+                    }
+                } else {
+                    chainY = 0;
+                }
+                k++;
+                if(k> row){
+                    break;
+                }
+            }
+        }
         return 0;
     }
     private int checkRangeBLC(int column, int row) {
+        int chainR = 0;
+        int chainY = 0;
+        Circle c;
+        for(int i = 0; i <= column-3; i++){
+            int k=i;
+            for (int j= row; j >= 0; j--) {
+                c =  scacchiera.get(k).get(j);
+
+                if (c.getFill().equals(Paint.valueOf("RED"))) {
+                    chainR++;
+                    //System.out.println("CHR "+ chainR);
+                    if (chainR == 4) {
+                    //    System.out.println("-----" + "1");
+                        return 1;
+                    }
+                } else {
+                    chainR = 0;
+                }
+
+                if (c.getFill().equals(Paint.valueOf("YELLOW"))) {
+                    chainY++;
+                    //System.out.println("CHY "+ chainY);
+                    if (chainY == 4) {
+                       // System.out.println("-----" + "2");
+                        return 2;
+                    }
+                } else {
+                    chainY = 0;
+                }
+                k++;
+                if(k> column){
+                    break;
+                }
+            }
+        }
         return 0;
     }
     private int checkRangeBLR(int column, int row) {
+        int chainR = 0;
+        int chainY = 0;
+        Circle c;
+        for (int j= row-1; j >= row-2;j-- ) {
+            int k=j;
+            for(int i = 0; i <= column; i++){ // i||j = column; i||j < 0; i||j --;
+
+                c =  scacchiera.get(i).get(k);
+                //System.out.println(i + "-" + k + "-" + c);
+                if (c.getFill().equals(Paint.valueOf("RED"))) {
+                    chainR++;
+                //    System.out.println("CHR "+ chainR);
+                    if (chainR == 4) {
+                //        System.out.println("-----" + "1");
+                        return 1;
+                    }
+                } else {
+                    chainR = 0;
+                }
+
+                if (c.getFill().equals(Paint.valueOf("YELLOW"))) {
+                    chainY++;
+                //    System.out.println("CHY "+ chainY);
+                    if (chainY == 4) {
+                //        System.out.println("-----" + "2");
+                        return 2;
+                    }
+                } else {
+                    chainY = 0;
+                }
+                k--;
+                if(k < 0){
+                    break;
+                }
+            }
+        }
         return 0;
     }
 /*    private int checkRange(List<Point2D> points) {
