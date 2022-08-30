@@ -2,6 +2,7 @@ package com.example.forza_quattro_grid2;
 
 import javafx.fxml.FXML;
 import javafx.geometry.Point2D;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
@@ -32,6 +33,10 @@ public class ForzaQuattro2Controller {
                 counterC5, counterC6;
     @FXML
     private Label gameLabel = new Label();
+
+    @FXML
+    private Button PlayButton = new Button();
+    public Button ResetButton = new Button();
 
     @FXML
     private Circle Circle00,Circle01,Circle02,Circle03,Circle04,Circle05,
@@ -129,6 +134,8 @@ public class ForzaQuattro2Controller {
     @FXML
     public void initialize(){
         inizializzaScacchiera();
+        PlayButton.setDisable(false);
+        ResetButton.setDisable(false);
         //inizializzaContatori();
         giocatore.intializePlayer();
     }
@@ -214,7 +221,8 @@ public class ForzaQuattro2Controller {
         updateCounterC0();*/
 
         fillCircle(0);
-
+/*        PlayButton.setDisable(true);
+        ResetButton.setDisable(true);*/
     }
 
     @FXML
@@ -236,6 +244,8 @@ public class ForzaQuattro2Controller {
         updateCounterC1();*/
 
         fillCircle(1);
+/*        PlayButton.setDisable(true);
+        ResetButton.setDisable(true);*/
     }
 
     @FXML
@@ -255,6 +265,8 @@ public class ForzaQuattro2Controller {
         updateCounterC2();*/
 
         fillCircle(2);
+/*        PlayButton.setDisable(true);
+        ResetButton.setDisable(true);*/
     }
 
     @FXML
@@ -274,6 +286,8 @@ public class ForzaQuattro2Controller {
         updateCounterC3();*/
 
         fillCircle(3);
+/*        PlayButton.setDisable(true);
+        ResetButton.setDisable(true);*/
     }
 
     @FXML
@@ -293,6 +307,8 @@ public class ForzaQuattro2Controller {
         updateCounterC4();*/
 
         fillCircle(4);
+/*        PlayButton.setDisable(true);
+        ResetButton.setDisable(true);*/
     }
 
     @FXML
@@ -312,6 +328,8 @@ public class ForzaQuattro2Controller {
         updateCounterC5();*/
 
         fillCircle(5);
+/*        PlayButton.setDisable(true);
+        ResetButton.setDisable(true);*/
     }
 
     @FXML
@@ -332,6 +350,8 @@ public class ForzaQuattro2Controller {
         updateCounterC6();*/
 
         fillCircle(6);
+        /*PlayButton.setDisable(true);
+        ResetButton.setDisable(true);*/
     }
 
     @FXML
@@ -436,6 +456,8 @@ public class ForzaQuattro2Controller {
         int chainY = 0;
         Circle c;
         for(int i = 0; i <= column; i++){
+            chainR = 0;
+            chainY = 0;
             for (int j= 0; j <= row; j++) {
                 c =  scacchiera.get(i).get(j);
                 if (c.getFill().equals(Paint.valueOf("RED"))) {
@@ -471,6 +493,8 @@ public class ForzaQuattro2Controller {
         int chainY = 0;
         Circle c;
         for (int j= 0; j <= row; j++) {
+            chainR = 0;
+            chainY = 0;
             for(int i = 0; i <= column; i++){
                 c =  scacchiera.get(i).get(j);
                 if (c.getFill().equals(Paint.valueOf("RED"))) {
@@ -505,6 +529,8 @@ public class ForzaQuattro2Controller {
         Circle c;
         for(int i = 0; i <= column-3; i++){
             int k=i;
+            chainR = 0;
+            chainY = 0;
             for (int j= 0; j <= row; j++) {
                 c =  scacchiera.get(k).get(j);
 
@@ -544,15 +570,17 @@ public class ForzaQuattro2Controller {
         Circle c;
         for (int j= 1; j <= row-3; j++) {
             int k=j;
+            chainR = 0;
+            chainY = 0;
             for(int i = 0; i <= column; i++){
                     c =  scacchiera.get(i).get(k);
-               // System.out.println(i + "-" + k + "-" + c);
+                System.out.println(i + "-" + k + "-" + c);
 
                 if (c.getFill().equals(Paint.valueOf("RED"))) {
                     chainR++;
-                 //   System.out.println("CHR "+ chainR);
+                    System.out.println("CHR "+ chainR);
                     if (chainR == 4) {
-                 //       System.out.println("-----" + "1");
+                       System.out.println("-----" + "1");
                         return 1;
                     }
                 } else {
@@ -561,9 +589,9 @@ public class ForzaQuattro2Controller {
 
                 if (c.getFill().equals(Paint.valueOf("YELLOW"))) {
                     chainY++;
-                //    System.out.println("CHY "+ chainY);
+                   System.out.println("CHY "+ chainY);
                     if (chainY == 4) {
-                //        System.out.println("-----" + "2");
+                        System.out.println("-----" + "2");
                         return 2;
                     }
                 } else {
@@ -583,6 +611,8 @@ public class ForzaQuattro2Controller {
         Circle c;
         for(int i = 0; i <= column-3; i++){
             int k=i;
+            chainR = 0;
+            chainY = 0;
             for (int j= row; j >= 0; j--) {
                 c =  scacchiera.get(k).get(j);
 
@@ -621,6 +651,8 @@ public class ForzaQuattro2Controller {
         Circle c;
         for (int j= row-1; j >= row-2;j-- ) {
             int k=j;
+            chainR = 0;
+            chainY = 0;
             for(int i = 0; i <= column; i++){ // i||j = column; i||j < 0; i||j --;
 
                 c =  scacchiera.get(i).get(k);
@@ -706,14 +738,42 @@ public class ForzaQuattro2Controller {
 
     private void gameOver(int winner) {
         if(winner == 1){
+            PlayButton.setDisable(true);
+            ResetButton.setDisable(false);
             gameLabel.setText("Il vinciotore è il giocatore 1");
-            System.out.println("Il vinciotore è il giocatore 1");
+            //System.out.println("Il vinciotore è il giocatore 1");
         }
         else if(winner == 2){
+            PlayButton.setDisable(true);
+            ResetButton.setDisable(false);
             gameLabel.setText("Il vincitore è il giocatore 2");
+
         }
         else
-            gameLabel.setText("PAREGGIO");
+            if(checkScacchiera(COLONNE-1,RIGHE-1)){
+                PlayButton.setDisable(false);
+                ResetButton.setDisable(false);
+                gameLabel.setText("PAREGGIO");
+            }
     }
+
+
+    private boolean checkScacchiera(int column, int row) {
+        Circle c;
+        for(int i = 0; i <= column; i++){
+            for (int j= 0; j <= row; j++) {
+                c =  scacchiera.get(i).get(j);
+                if (c.getFill().equals(Paint.valueOf("DODGERBLUE"))) {
+
+                        return false;
+                    }
+
+            }
+        }
+
+        return true;
+    }
+
+
 
 }
